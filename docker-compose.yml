@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql:5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: tkstudy
+      MYSQL_USER: db_admin
+      MYSQL_PASSWORD: db_password
+      MYSQL_DATABASE: library_db
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_unicode_ci']
